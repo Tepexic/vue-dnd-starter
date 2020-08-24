@@ -1,6 +1,8 @@
 # vue-dnd-starter
+This is a quick starter to build Vue components using [dflex/draggable](https://github.com/jalal246/dflex/tree/master/packages/draggable).
 
 ## Project setup
+Clone this repo and then run
 ```
 npm install
 ```
@@ -19,6 +21,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
