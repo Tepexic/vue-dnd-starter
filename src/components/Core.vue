@@ -1,5 +1,5 @@
 <template>
-  <li :id="id" :ref="id" class="element"> {{content}} </li>
+  <li :id="id" :ref="id"> {{content}} </li>
 </template>
 
 <script>
@@ -9,7 +9,7 @@ export default {
     id: {
       type: String,
       required: true,
-      default: Date.now().toString(),
+      default: Math.random().toString(),
     },
     content: {}
   },
@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.element {
+li {
   position: relative;
   width: 150px;
   height: 30px;
@@ -43,10 +43,5 @@ export default {
   border-color: transparent;
   padding: 8px;
   transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1) 0s;
-}
-
-.Huge {
-  background: rebeccapurple;
-  height: 800px;
 }
 </style>

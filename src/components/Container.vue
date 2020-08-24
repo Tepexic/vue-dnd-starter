@@ -1,13 +1,34 @@
 <template>
   <div @mousedown.prevent="onMouseDown"  class="Container">
     <ul>
-      <Core :id="Date.now().toString()"/>
+      <Core v-for="n in [1]"
+        :key="'left-' + n"
+        :id="generateKey()"
+        :content="'Hello-' + n"
+        />
+    </ul>
+    <ul>
+      <Core v-for="n in [1, 2, 3, 4, 5, 6, 7]"
+        :key="'center-' + n"
+        :id="generateKey()"
+        :content="'Hello-' + n"
+        />
+    </ul>
+    <ul>
+      <Core v-for="n in [1, 2, 3]"
+        :key="'right-' + n"
+        :id="generateKey()"
+        :content="'Hello-' + n"
+        />
     </ul>
   </div>
 </template>
 
 <script>
+// Import dependencies
 import { Draggable } from "@dflex/draggable"
+import { keyGenerator } from "@folo/utils"
+// Import components
 import Core from './Core.vue'
 
 export default {
@@ -17,7 +38,7 @@ export default {
 
   data: function () {
     return { 
-      id: 'parent-1',
+      id: keyGenerator(new Date().getTime()),
       mouseEvents: null,
       draggable: null,
       draggedID: null 
@@ -25,6 +46,10 @@ export default {
   },
 
   methods: {
+    generateKey: function () {
+      return keyGenerator(new Date().getTime())
+    },
+
     onMouseDown: function(e)  {
       const { target, button, clientX, clientY } = e;
       // avoid right mouse click and ensure id
